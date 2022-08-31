@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Player || Rohit Madeshiya</title>
+    <!-- CSS Linking -->
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Wavesurfer CDN -->
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <!-- Fontawesome CDN  -->
+    <script
+      src="https://kit.fontawesome.com/cc70fa30b0.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="leftBox">
+        <div></div>
+        <div class="imageBox">
+          <div class="imageBoxSpecial">
+            <img
+              src="https://m.media-amazon.com/images/I/71z8PlaYcLL._SS500_.jpg"
+              alt="imGn"
+              class="mainImage"
+            />
+          </div>
+          <h2 class="songName"></h2>
+        </div>
+        <div class="waveFormBox">
+          <div id="waveform"></div>
+          <div class="musicController">
+            <div></div>
+            <div class="midController">
+              <i
+                class="fas fa-undo"
+                aria-hidden="true"
+                onclick="backwardMusic()"
+              ></i>
+              <i class="fas fa-fast-backward" aria-hidden="true"></i>
+              <img
+                src="./play.png"
+                alt="playPauseIcon"
+                id="playPauseIcon"
+                onclick="playMusic()"
+              />
+              <i class="fas fa-forward" aria-hidden="true" id="nextSong"></i>
+              <i
+                class="fas fa-redo"
+                aria-hidden="true"
+                onclick="forwardMusic()"
+              ></i>
+            </div>
+            <div>
+              <img
+                src="./volume.png"
+                alt="volume-image"
+                id="volumeBtn"
+                onclick="handleVolume()"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rightBox">
+        <h2>Select Song To Play</h2>
+        <div class="songMainBox"></div>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

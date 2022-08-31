@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: 'Noto-serif', sans-serif;
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px 0 20px;
+  box-sizing: border-box;
+}
+.leftBox {
+  width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.leftBox .imageBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.leftBox img {
+  display: block;
+  border-radius: 5px;
+  -webkit-user-drag: none;
+  width: 300px;
+  aspect-ratio: 1/1;
+  margin-bottom: 20px;
+  object-fit: cover;
+  background-position: center;
+}
+
+.rightBox {
+  width: 35%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.rightBox::-webkit-scrollbar {
+  display: none;
+}
+.rightBox h2 {
+  text-align: center;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.songMainBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+.songBox {
+  width: 100%;
+  display: flex;
+  padding: 6px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-top: 8px;
+  box-sizing: border-box;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.songBox .imageBox img {
+  width: 60px !important;
+  aspect-ratio: 1/1;
+  object-fit: center;
+  -webkit-user-drag: none;
+  object-position: center;
+}
+.songBox .songDescription {
+  margin-left: 10px;
+}
+.songBox .songDescription h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  flex-basis: 100%;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-weight: 600;
+  color: #242b2e;
+  font-size: 16px;
+}
+.songBox .songDescription h4 {
+  font-size: 14px;
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: normal;
+}
+.waveFormBox {
+  width: 90%;
+  margin: 0 auto;
+  padding: 32px 0;
+}
+.musicController {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.musicController .fas {
+  font-size: 32px;
+  cursor: pointer;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.midController img {
+  margin-bottom: 0px;
+}
+img[alt='playPauseIcon'],
+#volumeBtn {
+  width: 32px;
+  cursor: pointer;
+}
+.midController {
+  display: flex;
+  align-items: center;
+}
+.fa-redo,
+.fa-undo {
+  font-size: 20px !important;
+}
