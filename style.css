@@ -13,6 +13,7 @@ body {
   background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
   background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
 }
+
 .wrapper {
   width: 100%;
   display: flex;
@@ -111,22 +112,26 @@ body {
   text-align: center;
   margin-top: 20px;
   display: flex;
+  padding-top: 20px;
   justify-content: space-between;
   align-items: center;
+  border-top: 1.5px solid #ffffffcc;
 }
 .musicController .fas {
-  font-size: 32px;
+  font-size: 28px;
   cursor: pointer;
   margin: 0 10px;
   cursor: pointer;
+  color: white;
 }
 .midController img {
   margin-bottom: 0px;
 }
 img[alt='playPauseIcon'],
 #volumeBtn {
-  width: 32px;
+  width: 28px;
   cursor: pointer;
+  margin-bottom: 0px;
 }
 .midController {
   display: flex;
@@ -135,4 +140,38 @@ img[alt='playPauseIcon'],
 .fa-redo,
 .fa-undo {
   font-size: 20px !important;
+}
+.songName {
+  color: #ffffffcc;
+}
+.waveFormMainBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.waveFormMainBox #waveform {
+  flex-basis: 85%;
+  width: 100%;
+}
+#songCurrentTime,
+#songTotalTime {
+  width: 5%;
+  color: #ffffffcc;
+  font-weight: normal;
+  font-size: 14px;
+}
+.favouriteIconContainer {
+  float: right;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 20px 50px 0 0;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+}
+#favouriteIcon {
+  width: 28px;
+  margin: 0;
 }

@@ -143,7 +143,6 @@ let myJsonData = [
     authorName: 'Rohit Madeshiya',
   },
 ];
-
 // Song Mapping Start
 let rightBox = document.querySelector('.songMainBox');
 myJsonData.map((songItem, index) => {
@@ -170,7 +169,6 @@ myJsonData.map((songItem, index) => {
   songDescription.appendChild(heading_four);
   songBox.appendChild(songDescription);
 });
-
 // Wavesurfer Start
 let wavesurfer = WaveSurfer.create({
   container: '#waveform',
@@ -180,12 +178,13 @@ let wavesurfer = WaveSurfer.create({
   barWidth: 3,
   barRadius: 3,
   cursorWidth: 3,
-  height: 50,
+  height: 30,
   cursorColor: 'transparent',
 });
 // Music load
 let myMusic = './Music/01 Bandeya - Dil Juunglee 190Kbps.mp3';
 wavesurfer.load(myMusic);
+
 // Main Data load
 let mainImage = document.querySelector('.mainImage');
 mainImage.src = myJsonData[0].songImage;
@@ -194,8 +193,10 @@ let songName_text = document.createTextNode(myJsonData[0].songName);
 songName.appendChild(songName_text);
 let playPauseIcon = document.getElementById('playPauseIcon');
 // Song Select Function
+
 function songHandle(index) {
   return async function newFunc() {
+    document.getElementById('songCurrentTime').innerText = '00:00';
     let tempdata = myJsonData[index];
     await wavesurfer.load(`./Music/${tempdata.songName}.mp3`);
     let mainImageNew = document.querySelector('.mainImage');
@@ -207,8 +208,24 @@ function songHandle(index) {
     playMusic();
   };
 }
-// PlayPause Function
+// Time Calculator Function
+const calculatTime = (time) => {
+  let minutes = Math.round(time / 60);
+  let seconds = Math.round(time % 60);
+  return `${minutes < 10 ? `0${minutes}` : minutes}:${
+    seconds < 10 ? `0${seconds}` : seconds
+  }`;
+};
+// get the current time of song
+wavesurfer.on('audioprocess', function () {
+  let currentSongTime = calculatTime(wavesurfer.getCurrentTime());
+  document.getElementById('songCurrentTime').innerText = currentSongTime;
+});
+// Play Pause Handle Function
 function playMusic() {
+  let songDuration = calculatTime(wavesurfer.getDuration());
+  document.getElementById('songTotalTime').innerText = songDuration;
+
   if (playPauseIcon.src.includes('play')) {
     playPauseIcon.src = 'pause.png';
     wavesurfer.play();
@@ -222,11 +239,6 @@ wavesurfer.on('finish', function () {
   playPauseIcon.src = 'play.png';
   wavesurfer.stop();
 });
-
-// function nextSong(data) {
-//   alert(data.songName + '.mp3');
-//   wavesurfer.load(data.songName + '.mp3');
-// }
 
 // Volume Toggle Function
 function handleVolume() {
@@ -254,7 +266,19 @@ document.body.onkeyup = (e) => {
     forwardMusic();
   } else if (e.code == 'ArrowLeft' || e.keyCode == 37) {
     backwardMusic();
-  } else if (e.code == 'm' || e.keyCode == 57) {
-    backwardMusic();
+  } else if (e.code == 'M' || e.keyCode == 77) {
+    handleVolume();
+  } else {
+    console.log('INVALID KEY PRESSS');
   }
 };
+// Favourite Song Handle Function
+
+function favouriteHandle() {
+  let favouriteIcon = document.getElementById('favouriteIcon');
+  if (favouriteIcon.src.includes('Outline')) {
+    favouriteIcon.src = 'heartFill.png';
+  } else {
+    favouriteIcon.src = 'heartOutline.png';
+  }
+}
